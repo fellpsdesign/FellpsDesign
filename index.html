@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FELLPS DESIGN - Design Gráfico Inovador</title>
+    <meta name="description" content="Transformamos ideias em designs impactantes. Especialistas em identidade visual, social media e materiais gráficos para empresas.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones (Lucide Icons) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Estilo customizado para usar a fonte Poppins */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111827; /* Fundo cinza escuro */
+            color: #F3F4F6; /* Texto cinza claro */
+        }
+        /* Efeito de gradiente sutil no fundo do hero */
+        .hero-gradient {
+            background: radial-gradient(ellipse at top, rgba(55, 65, 81, 0.3), transparent 70%), 
+                        radial-gradient(ellipse at bottom, rgba(55, 65, 81, 0.2), transparent 70%);
+        }
+        .section-title {
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+        /* Animação do spinner */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .color-swatch {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #4B5563;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 12px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- CABEÇALHO E NAVEGAÇÃO -->
+    <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <!-- LOGO -->
+            <a href="#inicio" class="flex items-center space-x-3">
+                <!-- SVG da sua logo - Apenas a meia-lua virada para a esquerda -->
+                <svg width="28" height="28" viewBox="0 0 100 100" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50,0 A50,50 0 1,1 50,100 A40,40 0 1,0 50,0 Z" />
+                </svg>
+                <span class="text-xl font-bold text-white">FELLPS DESIGN</span>
+            </a>
+            <!-- NAVEGAÇÃO PARA DESKTOP -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#sobre" class="text-gray-300 hover:text-white transition duration-300">Sobre</a>
+                <a href="#servicos" class="text-gray-300 hover:text-white transition duration-300">Serviços</a>
+                <a href="#portfolio" class="text-gray-300 hover:text-white transition duration-300">Portfólio</a>
+                <a href="#contato" class="text-gray-300 hover:text-white transition duration-300">Contato</a>
+            </nav>
+            <!-- BOTÃO DE CONTATO -->
+            <a href="https://wa.me/5585998089928" target="_blank" class="hidden md:inline-block bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md">
+                Fale Conosco
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- SEÇÃO INÍCIO (HERO) -->
+        <section id="inicio" class="min-h-screen flex items-center justify-center text-center pt-20 hero-gradient">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4 animate-fade-in-down">
+                    Transformando Ideias em <span class="text-blue-400">Designs Inovadores</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 animate-fade-in-up">
+                    Criamos identidades visuais e experiências digitais que conectam sua marca ao seu público de forma única e memorável.
+                </p>
+                <a href="https://wa.me/5585998089928" target="_blank" class="bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-full hover:bg-blue-700 transition duration-300 transform hover:scale-105 shadow-xl inline-flex items-center space-x-2">
+                    <i data-lucide="message-circle"></i>
+                    <span>Vamos conversar pelo WhatsApp</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- SEÇÃO SOBRE -->
+        <section id="sobre" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?q=80&w=800&auto=format&fit=crop" 
+                         alt="Equipe de design colaborando em um projeto" 
+                         class="rounded-2xl shadow-2xl w-full h-auto object-cover"
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x800/111827/FFFFFF?text=Fellps+Design';">
+                </div>
+                <div class="text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 section-title">Nossa Essência Criativa</h2>
+                    <p class="text-gray-300 mb-4">
+                        Fundada em 12 de agosto de 2025, a <strong>FELLPS DESIGN</strong> nasceu da paixão por transformar conceitos em comunicação visual poderosa. Acreditamos que um bom design não é apenas sobre estética, mas sobre criar uma conexão genuína entre a marca e seu público.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        Nosso compromisso é com a excelência e a inovação. Para cada projeto, mergulhamos no universo do cliente para entregar soluções personalizadas que não apenas atendem, mas superam as expectativas. Seja para um restaurante, uma barbearia ou uma loja, nosso objetivo é claro: fazer sua empresa se destacar.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center"><i data-lucide="check-circle" class="text-blue-400 mr-3"></i>Estratégia e Criatividade em cada detalhe.</li>
+                        <li class="flex items-center"><i data-lucide="check-circle" class="text-blue-400 mr-3"></i>Parceria e transparência com nossos clientes.</li>
+                        <li class="flex items-center"><i data-lucide="check-circle" class="text-blue-400 mr-3"></i>Foco em resultados que impulsionam negócios.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO SERVIÇOS -->
+        <section id="servicos" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title">Soluções de Design para sua Empresa</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transition duration-300 service-card"><i data-lucide="gem" class="mx-auto text-blue-400 mb-4" size="48"></i><h3 class="text-xl font-bold mb-2">Identidade Visual</h3><p class="text-gray-400">Criação de logotipos, paleta de cores e tipografia que representam a alma da sua marca.</p></div>
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transition duration-300 service-card"><i data-lucide="smartphone" class="mx-auto text-blue-400 mb-4" size="48"></i><h3 class="text-xl font-bold mb-2">Social Media</h3><p class="text-gray-400">Designs para posts, stories e capas que aumentam o engajamento e fortalecem sua presença online.</p></div>
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transition duration-300 service-card"><i data-lucide="printer" class="mx-auto text-blue-400 mb-4" size="48"></i><h3 class="text-xl font-bold mb-2">Material Gráfico</h3><p class="text-gray-400">Desenvolvimento de cartões de visita, flyers, cardápios e banners que impressionam.</p></div>
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transition duration-300 service-card"><i data-lucide="package" class="mx-auto text-blue-400 mb-4" size="48"></i><h3 class="text-xl font-bold mb-2">Design de Embalagens</h3><p class="text-gray-400">Embalagens criativas que se destacam na prateleira e encantam o consumidor.</p></div>
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transition duration-300 service-card"><i data-lucide="layout-template" class="mx-auto text-blue-400 mb-4" size="48"></i><h3 class="text-xl font-bold mb-2">Web Design (UI/UX)</h3><p class="text-gray-400">Criação de interfaces para sites e aplicativos focadas na melhor experiência do usuário.</p></div>
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg transition duration-300 service-card"><i data-lucide="pen-tool" class="mx-auto text-blue-400 mb-4" size="48"></i><h3 class="text-xl font-bold mb-2">Ilustração Digital</h3><p class="text-gray-400">Ilustrações personalizadas para dar um toque artístico e exclusivo aos seus projetos.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO PORTFÓLIO -->
+        <section id="portfolio" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 section-title">Nosso Trabalho em Destaque</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mb-12">Confira alguns projetos que tivemos o prazer de criar. Aqui você pode substituir estas imagens pelos seus melhores trabalhos.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg"><img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Projeto+1" alt="Placeholder para projeto de design 1" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"><div class="text-center text-white p-4"><h3 class="text-lg font-bold">Marca para Cafeteria</h3><p class="text-sm">Identidade Visual Completa</p></div></div></div>
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg"><img src="https://placehold.co/600x400/374151/FFFFFF?text=Projeto+2" alt="Placeholder para projeto de design 2" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"><div class="text-center text-white p-4"><h3 class="text-lg font-bold">Social Media para Barbearia</h3><p class="text-sm">Gerenciamento e Criação de Conteúdo</p></div></div></div>
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg"><img src="https://placehold.co/600x400/4B5563/FFFFFF?text=Projeto+3" alt="Placeholder para projeto de design 3" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"><div class="text-center text-white p-4"><h3 class="text-lg font-bold">Embalagem para Loja</h3><p class="text-sm">Design de Embalagem</p></div></div></div>
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg"><img src="https://placehold.co/600x400/6B7280/FFFFFF?text=Projeto+4" alt="Placeholder para projeto de design 4" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"><div class="text-center text-white p-4"><h3 class="text-lg font-bold">Cardápio para Restaurante</h3><p class="text-sm">Design Editorial</p></div></div></div>
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg"><img src="https://placehold.co/600x400/111827/FFFFFF?text=Projeto+5" alt="Placeholder para projeto de design 5" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"><div class="text-center text-white p-4"><h3 class="text-lg font-bold">Website para Consultório</h3><p class="text-sm">Web Design (UI/UX)</p></div></div></div>
+                    <div class="group relative overflow-hidden rounded-xl shadow-lg"><img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Projeto+6" alt="Placeholder para projeto de design 6" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"><div class="text-center text-white p-4"><h3 class="text-lg font-bold">Logotipo para Startup</h3><p class="text-sm">Branding</p></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CONTATO E FERRAMENTAS DE IA -->
+        <section id="contato" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 section-title">Vamos dar vida ao seu projeto?</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mb-12">
+                    Use nosso Centro de Ferramentas de IA para ter ideias ou entre em contato diretamente.
+                </p>
+
+                <!-- INÍCIO DAS FERRAMENTAS GEMINI -->
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 mb-16">
+                    <!-- FERRAMENTA 1: CONSULTOR CRIATIVO -->
+                    <div class="bg-gray-900 p-8 rounded-2xl shadow-2xl flex flex-col">
+                        <h3 class="text-2xl font-bold text-white mb-4">✨ Consultor Criativo</h3>
+                        <p class="text-gray-400 mb-6 flex-grow">Descreva sua empresa e receba uma sugestão de identidade visual.</p>
+                        <div class="flex flex-col gap-4">
+                            <input type="text" id="brandInput" class="w-full bg-gray-800 border border-gray-700 text-white rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Ex: Uma cafeteria com tema de gatos">
+                            <button id="generateBrandButton" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300 flex items-center justify-center gap-2">
+                                <i data-lucide="sparkles" class="w-5 h-5"></i>
+                                Gerar Ideias de Marca
+                            </button>
+                        </div>
+                        <div id="brandLoader" class="hidden mx-auto my-6"><div class="loader"></div></div>
+                        <div id="brandResult" class="text-left mt-6 bg-gray-800 p-6 rounded-lg border border-gray-700 whitespace-pre-wrap hidden"></div>
+                    </div>
+
+                    <!-- FERRAMENTA 2: GERADOR DE POSTS -->
+                    <div class="bg-gray-900 p-8 rounded-2xl shadow-2xl flex flex-col">
+                        <h3 class="text-2xl font-bold text-white mb-4">✨ Gerador de Posts</h3>
+                        <p class="text-gray-400 mb-6 flex-grow">Dê um tópico e receba 3 ideias de posts para redes sociais.</p>
+                        <div class="flex flex-col gap-4">
+                            <input type="text" id="postInput" class="w-full bg-gray-800 border border-gray-700 text-white rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Ex: Promoção de corte de cabelo">
+                            <button id="generatePostButton" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300 flex items-center justify-center gap-2">
+                                <i data-lucide="thumbs-up" class="w-5 h-5"></i>
+                                Gerar Posts
+                            </button>
+                        </div>
+                        <div id="postLoader" class="hidden mx-auto my-6"><div class="loader"></div></div>
+                        <div id="postResult" class="text-left mt-6 bg-gray-800 p-6 rounded-lg border border-gray-700 whitespace-pre-wrap hidden"></div>
+                    </div>
+
+                    <!-- FERRAMENTA 3: GERADOR DE PALETA DE CORES -->
+                    <div class="bg-gray-900 p-8 rounded-2xl shadow-2xl flex flex-col">
+                        <h3 class="text-2xl font-bold text-white mb-4">✨ Paleta por Emoção</h3>
+                        <p class="text-gray-400 mb-6 flex-grow">Descreva um sentimento e receba uma paleta de cores com sua psicologia.</p>
+                        <div class="flex flex-col gap-4">
+                            <input type="text" id="paletteInput" class="w-full bg-gray-800 border border-gray-700 text-white rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Ex: Energia e diversão juvenil">
+                            <button id="generatePaletteButton" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300 flex items-center justify-center gap-2">
+                                <i data-lucide="palette" class="w-5 h-5"></i>
+                                Gerar Cores
+                            </button>
+                        </div>
+                        <div id="paletteLoader" class="hidden mx-auto my-6"><div class="loader"></div></div>
+                        <div id="paletteResult" class="text-left mt-6 bg-gray-800 p-6 rounded-lg border border-gray-700 hidden"></div>
+                    </div>
+                </div>
+                <!-- FIM DAS FERRAMENTAS GEMINI -->
+
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                    <a href="mailto:fellpsoliveira2315@gmail.com" class="flex items-center space-x-3 text-lg text-gray-300 hover:text-blue-400 transition-colors duration-300"><i data-lucide="mail"></i><span>fellpsoliveira2315@gmail.com</span></a>
+                    <a href="https://instagram.com/fellpsdesign" target="_blank" class="flex items-center space-x-3 text-lg text-gray-300 hover:text-blue-400 transition-colors duration-300"><i data-lucide="instagram"></i><span>@fellpsdesign</span></a>
+                    <a href="https://wa.me/5585998089928" target="_blank" class="flex items-center space-x-3 text-lg text-gray-300 hover:text-blue-400 transition-colors duration-300"><i data-lucide="smartphone"></i><span>(85) 99808-9928</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-6">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; <span id="currentYear"></span> FELLPS DESIGN. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Renderiza os ícones do Lucide
+        lucide.createIcons();
+
+        // Atualiza o ano no rodapé automaticamente
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // --- LÓGICA DA API GEMINI ---
+
+        // Elementos do Consultor Criativo
+        const generateBrandButton = document.getElementById('generateBrandButton');
+        const brandInput = document.getElementById('brandInput');
+        const brandLoader = document.getElementById('brandLoader');
+        const brandResultDiv = document.getElementById('brandResult');
+
+        // Elementos do Gerador de Posts
+        const generatePostButton = document.getElementById('generatePostButton');
+        const postInput = document.getElementById('postInput');
+        const postLoader = document.getElementById('postLoader');
+        const postResultDiv = document.getElementById('postResult');
+
+        // Elementos do Gerador de Paleta de Cores
+        const generatePaletteButton = document.getElementById('generatePaletteButton');
+        const paletteInput = document.getElementById('paletteInput');
+        const paletteLoader = document.getElementById('paletteLoader');
+        const paletteResultDiv = document.getElementById('paletteResult');
+
+        // Event Listener para o Consultor Criativo
+        generateBrandButton.addEventListener('click', async () => {
+            const promptText = brandInput.value;
+            if (!promptText) {
+                brandResultDiv.textContent = 'Por favor, descreva sua ideia no campo acima.';
+                brandResultDiv.classList.remove('hidden');
+                return;
+            }
+            
+            brandLoader.classList.remove('hidden');
+            brandResultDiv.classList.add('hidden');
+            generateBrandButton.disabled = true;
+
+            const brandPrompt = `Aja como um consultor de design sênior da "FELLPS DESIGN". Um cliente em potencial descreveu sua empresa como: "${promptText}". Sua tarefa é fornecer uma mini consultoria criativa em 3 parágrafos curtos. Use aspas para os títulos, da seguinte forma: 1. "Conceito e Estilo": Sugira um conceito visual e um estilo de design. 2. "Paleta de Cores e Tipografia": Recomende uma paleta de cores (com 2 ou 3 cores) e um estilo de fonte. 3. "Chamada para Ação": Termine de forma amigável, elogiando a ideia e convidando o cliente a entrar em contato com a FELLPS DESIGN pelo WhatsApp para aprofundar o projeto. Seja criativo, profissional e encorajador. Formate a resposta de forma clara e não use asteriscos.`;
+
+            try {
+                const text = await callGemini(brandPrompt);
+                brandResultDiv.textContent = text;
+            } catch (error) {
+                console.error('Error calling Gemini API for brand:', error);
+                brandResultDiv.textContent = 'Desculpe, ocorreu um erro ao gerar as ideias. Tente novamente.';
+            } finally {
+                brandLoader.classList.add('hidden');
+                brandResultDiv.classList.remove('hidden');
+                generateBrandButton.disabled = false;
+            }
+        });
+
+        // Event Listener para o Gerador de Posts
+        generatePostButton.addEventListener('click', async () => {
+            const promptText = postInput.value;
+            if (!promptText) {
+                postResultDiv.textContent = 'Por favor, insira um tópico para os posts acima.';
+                postResultDiv.classList.remove('hidden');
+                return;
+            }
+
+            postLoader.classList.remove('hidden');
+            postResultDiv.classList.add('hidden');
+            generatePostButton.disabled = true;
+
+            const postPrompt = `Aja como um especialista em mídias sociais da "FELLPS DESIGN". Um cliente precisa de ideias de posts para o seguinte tópico: "${promptText}". Sua tarefa é criar 3 sugestões de posts curtos e criativos para Instagram ou Facebook. Inclua emojis relevantes em cada sugestão para aumentar o engajamento. Apresente as 3 opções de forma clara com títulos (Opção 1, Opção 2, Opção 3). No final, adicione uma frase convidando o cliente a contratar os serviços de social media da FELLPS DESIGN para um plano de conteúdo completo.`;
+
+            try {
+                const text = await callGemini(postPrompt);
+                postResultDiv.textContent = text;
+            } catch (error) {
+                console.error('Error calling Gemini API for posts:', error);
+                postResultDiv.textContent = 'Desculpe, ocorreu um erro ao gerar as ideias. Tente novamente.';
+            } finally {
+                postLoader.classList.add('hidden');
+                postResultDiv.classList.remove('hidden');
+                generatePostButton.disabled = false;
+            }
+        });
+
+        // Event Listener para o Gerador de Paleta de Cores
+        generatePaletteButton.addEventListener('click', async () => {
+            const promptText = paletteInput.value;
+            if (!promptText) {
+                paletteResultDiv.innerHTML = '<p>Por favor, descreva um sentimento ou conceito acima.</p>';
+                paletteResultDiv.classList.remove('hidden');
+                return;
+            }
+
+            paletteLoader.classList.remove('hidden');
+            paletteResultDiv.classList.add('hidden');
+            generatePaletteButton.disabled = true;
+
+            const palettePrompt = `Aja como um designer especialista em psicologia das cores. Um cliente quer transmitir a seguinte emoção/conceito com sua marca: "${promptText}". Sua tarefa é criar uma paleta de 3 cores harmoniosas. Para cada cor, forneça: o nome da cor, o código hexadecimal, e uma breve explicação (1-2 frases) do porquê essa cor ajuda a transmitir o conceito. Formate a resposta usando a seguinte estrutura para cada cor: "[NOME DA COR] - [HEX CODE] - [EXPLICAÇÃO]". Use "::" como um separador entre cada cor. Exemplo: Azul Sereno - #A2B9D1 - Explicação...::Verde Natural - #D1E2C4 - Explicação...::Branco Puro - #FFFFFF - Explicação...`;
+
+            try {
+                const text = await callGemini(palettePrompt);
+                const colors = text.split('::').map(c => c.trim());
+                let htmlResult = '<div class="space-y-4">';
+                colors.forEach(colorString => {
+                    const parts = colorString.split(' - ');
+                    if (parts.length >= 3) {
+                        const name = parts[0];
+                        const hex = parts[1];
+                        const explanation = parts.slice(2).join(' - ');
+                        htmlResult += `
+                            <div>
+                                <div class="flex items-center mb-1">
+                                    <span class="color-swatch" style="background-color: ${hex};"></span>
+                                    <p class="font-bold">${name} <span class="font-normal text-gray-400">${hex}</span></p>
+                                </div>
+                                <p class="text-gray-400 text-sm ml-9">${explanation}</p>
+                            </div>
+                        `;
+                    }
+                });
+                htmlResult += '</div>';
+                paletteResultDiv.innerHTML = htmlResult;
+            } catch (error) {
+                console.error('Error calling Gemini API for palette:', error);
+                paletteResultDiv.innerHTML = '<p>Desculpe, ocorreu um erro ao gerar a paleta. Tente novamente.</p>';
+            } finally {
+                paletteLoader.classList.add('hidden');
+                paletteResultDiv.classList.remove('hidden');
+                generatePaletteButton.disabled = false;
+            }
+        });
+        
+        // Função GENÉRICA para chamar a API Gemini com retentativa exponencial
+        async function callGemini(prompt, retries = 3, delay = 1000) {
+            const apiKey = ""; // A chave será fornecida pelo ambiente
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+            
+            let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+            const payload = { contents: chatHistory };
+
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        // Se a resposta não for OK, tenta extrair a mensagem de erro do corpo
+                        const errorBody = await response.json().catch(() => null);
+                        const errorMessage = errorBody?.error?.message || `HTTP error! status: ${response.status}`;
+                        throw new Error(errorMessage);
+                    }
+
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        return result.candidates[0].content.parts[0].text;
+                    } else {
+                        // Verifica se a resposta foi bloqueada por segurança
+                        if (result.candidates && result.candidates[0].finishReason === 'SAFETY') {
+                            throw new Error('A resposta foi bloqueada por motivos de segurança. Tente uma pergunta diferente.');
+                        }
+                        throw new Error('Resposta da API inválida ou sem conteúdo.');
+                    }
+                } catch (error) {
+                    console.error(`Attempt ${i + 1} failed:`, error.message);
+                    if (i === retries - 1) {
+                         // Na última tentativa, lança um erro mais amigável
+                        if (error.message.includes('segurança')) {
+                            throw new Error('Sua solicitação não pôde ser processada por motivos de segurança. Por favor, reformule sua pergunta.');
+                        }
+                        throw new Error('Não foi possível conectar à API após várias tentativas.');
+                    }
+                    await new Promise(res => setTimeout(res, delay * Math.pow(2, i)));
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
