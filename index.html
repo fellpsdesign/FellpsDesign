@@ -58,6 +58,10 @@
             vertical-align: middle;
             margin-right: 12px;
         }
+        /* Estilos para o Modal da API Key */
+        #apiKeyModal.hidden {
+            display: none;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -108,7 +112,7 @@
         <section id="sobre" class="py-20 bg-gray-900">
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <img src="https://images.unsplash.com/photo-155865514GH6-364adaf1fcc9?q=80&w=800&auto=format&fit=crop" 
+                    <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?q=80&w=800&auto=format&fit=crop" 
                          alt="Equipe de design colaborando em um projeto" 
                          class="rounded-2xl shadow-2xl w-full h-auto object-cover"
                          onerror="this.onerror=null;this.src='https://placehold.co/600x800/111827/FFFFFF?text=Fellps+Design';">
@@ -179,21 +183,6 @@
                         <img src="https://placehold.co/600x400/4B5563/FFFFFF?text=Projeto+3" alt="Placeholder para projeto de design 3" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"><div class="text-center text-white p-4"><h3 class="text-lg font-bold">Embalagem para Loja</h3><p class="text-sm">Design de Embalagem</p></div></div>
                     </div>
 
-                    <!-- Item do Portfólio 4 (Exemplo) -->
-                    <div class="group relative overflow-hidden rounded-xl shadow-lg">
-                        <img src="https://placehold.co/600x400/6B7280/FFFFFF?text=Projeto+4" alt="Placeholder para projeto de design 4" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"><div class="text-center text-white p-4"><h3 class="text-lg font-bold">Cardápio para Restaurante</h3><p class="text-sm">Design Editorial</p></div></div>
-                    </div>
-
-                    <!-- Item do Portfólio 5 (Exemplo) -->
-                    <div class="group relative overflow-hidden rounded-xl shadow-lg">
-                        <img src="https://placehold.co/600x400/111827/FFFFFF?text=Projeto+5" alt="Placeholder para projeto de design 5" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"><div class="text-center text-white p-4"><h3 class="text-lg font-bold">Website para Consultório</h3><p class="text-sm">Web Design (UI/UX)</p></div></div>
-                    </div>
-
-                    <!-- Item do Portfólio 6 (Exemplo) -->
-                    <div class="group relative overflow-hidden rounded-xl shadow-lg">
-                        <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Projeto+6" alt="Placeholder para projeto de design 6" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"><div class="text-center text-white p-4"><h3 class="text-lg font-bold">Logotipo para Startup</h3><p class="text-sm">Branding</p></div></div>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -201,7 +190,10 @@
         <!-- SEÇÃO CONTATO E FERRAMENTAS DE IA -->
         <section id="contato" class="py-20">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 section-title">Vamos dar vida ao seu projeto?</h2>
+                <div class="flex justify-center items-center gap-4 mb-4">
+                    <h2 class="text-3xl md:text-4xl font-bold section-title">Vamos dar vida ao seu projeto?</h2>
+                    <button id="settingsButton" class="text-gray-400 hover:text-white transition-colors duration-300"><i data-lucide="settings" class="w-6 h-6"></i></button>
+                </div>
                 <p class="text-gray-400 max-w-2xl mx-auto mb-12">
                     Use nosso Centro de Ferramentas de IA para ter ideias ou entre em contato diretamente.
                 </p>
@@ -271,154 +263,145 @@
         </div>
     </footer>
 
+    <!-- MODAL DA API KEY -->
+    <div id="apiKeyModal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="bg-gray-800 p-8 rounded-2xl shadow-2xl max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold text-white">Configurar Chave de API</h3>
+                <button id="closeModalButton" class="text-gray-400 hover:text-white">&times;</button>
+            </div>
+            <p class="text-gray-400 mb-4">Para usar as ferramentas de IA, você precisa de uma Chave de API gratuita do Google AI Studio.</p>
+            <div class="flex flex-col gap-2 mb-4">
+                <label for="apiKeyInput" class="text-sm font-semibold text-gray-300">Sua Chave de API do Gemini:</label>
+                <input type="password" id="apiKeyInput" class="w-full bg-gray-700 border border-gray-600 text-white rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Cole sua chave aqui">
+            </div>
+            <button id="saveApiKeyButton" class="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Salvar Chave</button>
+            <p class="text-xs text-gray-500 mt-4">Sua chave é salva apenas no seu navegador.</p>
+            <a href="https://aistudio.google.com/app/apikey" target="_blank" class="block text-center mt-4 text-blue-400 hover:underline">Como obter uma chave de API gratuita &rarr;</a>
+        </div>
+    </div>
+
     <script>
         // Renderiza os ícones do Lucide
         lucide.createIcons();
 
         // Atualiza o ano no rodapé automaticamente
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // --- LÓGICA DO MODAL DA API KEY ---
+        const settingsButton = document.getElementById('settingsButton');
+        const apiKeyModal = document.getElementById('apiKeyModal');
+        const closeModalButton = document.getElementById('closeModalButton');
+        const saveApiKeyButton = document.getElementById('saveApiKeyButton');
+        const apiKeyInput = document.getElementById('apiKeyInput');
+
+        // Carrega a chave do localStorage ao iniciar
+        apiKeyInput.value = localStorage.getItem('geminiApiKey') || '';
+
+        settingsButton.addEventListener('click', () => apiKeyModal.classList.remove('hidden'));
+        closeModalButton.addEventListener('click', () => apiKeyModal.classList.add('hidden'));
+        saveApiKeyButton.addEventListener('click', () => {
+            const key = apiKeyInput.value.trim();
+            if (key) {
+                localStorage.setItem('geminiApiKey', key);
+                apiKeyModal.classList.add('hidden');
+                alert('Chave de API salva com sucesso!');
+            } else {
+                alert('Por favor, insira uma chave de API.');
+            }
+        });
 
         // --- LÓGICA DA API GEMINI ---
 
-        // Elementos do Consultor Criativo
-        const generateBrandButton = document.getElementById('generateBrandButton');
-        const brandInput = document.getElementById('brandInput');
-        const brandLoader = document.getElementById('brandLoader');
-        const brandResultDiv = document.getElementById('brandResult');
+        // Elementos das Ferramentas
+        const allButtons = [document.getElementById('generateBrandButton'), document.getElementById('generatePostButton'), document.getElementById('generatePaletteButton')];
+        const allInputs = [document.getElementById('brandInput'), document.getElementById('postInput'), document.getElementById('paletteInput')];
+        const allLoaders = [document.getElementById('brandLoader'), document.getElementById('postLoader'), document.getElementById('paletteLoader')];
+        const allResults = [document.getElementById('brandResult'), document.getElementById('postResult'), document.getElementById('paletteResult')];
 
-        // Elementos do Gerador de Posts
-        const generatePostButton = document.getElementById('generatePostButton');
-        const postInput = document.getElementById('postInput');
-        const postLoader = document.getElementById('postLoader');
-        const postResultDiv = document.getElementById('postResult');
-
-        // Elementos do Gerador de Paleta de Cores
-        const generatePaletteButton = document.getElementById('generatePaletteButton');
-        const paletteInput = document.getElementById('paletteInput');
-        const paletteLoader = document.getElementById('paletteLoader');
-        const paletteResultDiv = document.getElementById('paletteResult');
-
-        // Função para limpar o texto da IA
-        function cleanAiText(text) {
-            // Remove asteriscos, hashtags e a palavra "Opção"
-            return text.replace(/[\*#]/g, '').replace(/Opção \d:/g, '').trim();
+        function getApiKey() {
+            const key = localStorage.getItem('geminiApiKey');
+            if (!key) {
+                apiKeyModal.classList.remove('hidden');
+                throw new Error('Chave de API não configurada. Por favor, configure a chave nas configurações.');
+            }
+            return key;
         }
 
-        // Event Listener para o Consultor Criativo
-        generateBrandButton.addEventListener('click', async () => {
-            const promptText = brandInput.value;
-            if (!promptText) {
-                brandResultDiv.textContent = 'Por favor, descreva sua ideia no campo acima.';
-                brandResultDiv.classList.remove('hidden');
-                return;
-            }
+        function cleanAiText(text) {
+             return text.replace(/[\*#]/g, '').replace(/Opção \d:/g, '').trim();
+        }
+
+        async function handleApiCall(buttonIndex, promptFn) {
+            const button = allButtons[buttonIndex];
+            const input = allInputs[buttonIndex];
+            const loader = allLoaders[buttonIndex];
+            const resultDiv = allResults[buttonIndex];
             
-            brandLoader.classList.remove('hidden');
-            brandResultDiv.classList.add('hidden');
-            generateBrandButton.disabled = true;
-
-            const brandPrompt = `Aja como um consultor de design sênior da "FELLPS DESIGN". Um cliente em potencial descreveu sua empresa como: "${promptText}". Sua tarefa é fornecer uma mini consultoria criativa em 3 parágrafos curtos. Use aspas para os títulos, da seguinte forma: 1. "Conceito e Estilo": Sugira um conceito visual e um estilo de design. 2. "Paleta de Cores e Tipografia": Recomende uma paleta de cores (com 2 ou 3 cores) e um estilo de fonte. 3. "Chamada para Ação": Termine de forma amigável, elogiando a ideia e convidando o cliente a entrar em contato com a FELLPS DESIGN pelo WhatsApp para aprofundar o projeto. Seja criativo, profissional e encorajador. Formate a resposta de forma clara e não use asteriscos ou hashtags.`;
-
-            try {
-                let text = await callGemini(brandPrompt);
-                brandResultDiv.textContent = cleanAiText(text);
-            } catch (error) {
-                console.error('Error calling Gemini API for brand:', error);
-                brandResultDiv.textContent = `Desculpe, ocorreu um erro: ${error.message}`;
-            } finally {
-                brandLoader.classList.add('hidden');
-                brandResultDiv.classList.remove('hidden');
-                generateBrandButton.disabled = false;
-            }
-        });
-
-        // Event Listener para o Gerador de Posts
-        generatePostButton.addEventListener('click', async () => {
-            const promptText = postInput.value;
+            const promptText = input.value;
             if (!promptText) {
-                postResultDiv.textContent = 'Por favor, insira um tópico para os posts acima.';
-                postResultDiv.classList.remove('hidden');
+                resultDiv.innerHTML = '<p>Por favor, preencha o campo acima.</p>';
+                resultDiv.classList.remove('hidden');
                 return;
             }
 
-            postLoader.classList.remove('hidden');
-            postResultDiv.classList.add('hidden');
-            generatePostButton.disabled = true;
-
-            const postPrompt = `Aja como um especialista em mídias sociais da "FELLPS DESIGN". Um cliente precisa de ideias de posts para o seguinte tópico: "${promptText}". Sua tarefa é criar 3 sugestões de posts curtos e criativos para Instagram ou Facebook. Inclua emojis relevantes em cada sugestão para aumentar o engajamento. Apresente as 3 opções de forma clara, separando-as com "---". Não use títulos como "Opção 1", nem use asteriscos ou hashtags no texto. No final, adicione uma frase convidando o cliente a contratar os serviços de social media da FELLPS DESIGN para um plano de conteúdo completo.`;
+            loader.classList.remove('hidden');
+            resultDiv.classList.add('hidden');
+            button.disabled = true;
 
             try {
-                let text = await callGemini(postPrompt);
-                postResultDiv.textContent = cleanAiText(text);
-            } catch (error) {
-                console.error('Error calling Gemini API for posts:', error);
-                postResultDiv.textContent = `Desculpe, ocorreu um erro: ${error.message}`;
-            } finally {
-                postLoader.classList.add('hidden');
-                postResultDiv.classList.remove('hidden');
-                generatePostButton.disabled = false;
-            }
-        });
-
-        // Event Listener para o Gerador de Paleta de Cores
-        generatePaletteButton.addEventListener('click', async () => {
-            const promptText = paletteInput.value;
-            if (!promptText) {
-                paletteResultDiv.innerHTML = '<p>Por favor, descreva um sentimento ou conceito acima.</p>';
-                paletteResultDiv.classList.remove('hidden');
-                return;
-            }
-
-            paletteLoader.classList.remove('hidden');
-            paletteResultDiv.classList.add('hidden');
-            generatePaletteButton.disabled = true;
-
-            const palettePrompt = `Aja como um designer especialista em psicologia das cores. Um cliente quer transmitir a seguinte emoção/conceito com sua marca: "${promptText}". Sua tarefa é criar uma paleta de 3 cores harmoniosas. Para cada cor, forneça: o nome da cor, o código hexadecimal, e uma breve explicação (1-2 frases) do porquê essa cor ajuda a transmitir o conceito. Formate a resposta usando a seguinte estrutura para cada cor: "[NOME DA COR] - [HEX CODE] - [EXPLICAÇÃO]". Use "::" como um separador entre cada cor. Exemplo: Azul Sereno - #A2B9D1 - Explicação...::Verde Natural - #D1E2C4 - Explicação...::Branco Puro - #FFFFFF - Explicação...`;
-
-            try {
-                const text = await callGemini(palettePrompt);
-                const colors = text.split('::').map(c => c.trim()).filter(c => c);
-                let htmlResult = '<div class="space-y-4">';
-                if (colors.length === 0 || text.includes('Error')) {
-                    htmlResult = `<p>${text || 'Não foi possível gerar uma paleta com essa descrição.'}</p>`;
-                } else {
-                    colors.forEach(colorString => {
-                        const parts = colorString.split(' - ');
-                        if (parts.length >= 3) {
-                            const name = parts[0];
-                            const hex = parts[1];
-                            const explanation = parts.slice(2).join(' - ');
-                            htmlResult += `
-                                <div>
-                                    <div class="flex items-center mb-1">
-                                        <span class="color-swatch" style="background-color: ${hex};"></span>
-                                        <p class="font-bold">${name} <span class="font-normal text-gray-400">${hex}</span></p>
+                const apiKey = getApiKey();
+                const prompt = promptFn(promptText);
+                const text = await callGemini(prompt, apiKey);
+                
+                // Tratamento específico para a paleta de cores
+                if (buttonIndex === 2) {
+                    const colors = text.split('::').map(c => c.trim()).filter(c => c);
+                    let htmlResult = '<div class="space-y-4">';
+                    if (colors.length === 0 || text.includes('Error')) {
+                        htmlResult = `<p>${text || 'Não foi possível gerar uma paleta com essa descrição.'}</p>`;
+                    } else {
+                        colors.forEach(colorString => {
+                            const parts = colorString.split(' - ');
+                            if (parts.length >= 3) {
+                                const name = parts[0];
+                                const hex = parts[1];
+                                const explanation = parts.slice(2).join(' - ');
+                                htmlResult += `
+                                    <div>
+                                        <div class="flex items-center mb-1">
+                                            <span class="color-swatch" style="background-color: ${hex};"></span>
+                                            <p class="font-bold">${name} <span class="font-normal text-gray-400">${hex}</span></p>
+                                        </div>
+                                        <p class="text-gray-400 text-sm ml-9">${explanation}</p>
                                     </div>
-                                    <p class="text-gray-400 text-sm ml-9">${explanation}</p>
-                                </div>
-                            `;
-                        }
-                    });
+                                `;
+                            }
+                        });
+                    }
+                    htmlResult += '</div>';
+                    resultDiv.innerHTML = htmlResult;
+                } else {
+                    resultDiv.textContent = cleanAiText(text);
                 }
-                htmlResult += '</div>';
-                paletteResultDiv.innerHTML = htmlResult;
+
             } catch (error) {
-                console.error('Error calling Gemini API for palette:', error);
-                paletteResultDiv.innerHTML = `<p>Desculpe, ocorreu um erro: ${error.message}</p>`;
+                console.error('Error during API call:', error);
+                resultDiv.textContent = `Desculpe, ocorreu um erro: ${error.message}`;
             } finally {
-                paletteLoader.classList.add('hidden');
-                paletteResultDiv.classList.remove('hidden');
-                generatePaletteButton.disabled = false;
+                loader.classList.add('hidden');
+                resultDiv.classList.remove('hidden');
+                button.disabled = false;
             }
-        });
+        }
+
+        allButtons[0].addEventListener('click', () => handleApiCall(0, (promptText) => `Aja como um consultor de design sênior da "FELLPS DESIGN". Um cliente em potencial descreveu sua empresa como: "${promptText}". Sua tarefa é fornecer uma mini consultoria criativa em 3 parágrafos curtos. Use aspas para os títulos, da seguinte forma: 1. "Conceito e Estilo": Sugira um conceito visual e um estilo de design. 2. "Paleta de Cores e Tipografia": Recomende uma paleta de cores (com 2 ou 3 cores) e um estilo de fonte. 3. "Chamada para Ação": Termine de forma amigável, elogiando a ideia e convidando o cliente a entrar em contato com a FELLPS DESIGN pelo WhatsApp para aprofundar o projeto. Seja criativo, profissional e encorajador. Formate a resposta de forma clara e não use asteriscos ou hashtags.`));
+        allButtons[1].addEventListener('click', () => handleApiCall(1, (promptText) => `Aja como um especialista em mídias sociais da "FELLPS DESIGN". Um cliente precisa de ideias de posts para o seguinte tópico: "${promptText}". Sua tarefa é criar 3 sugestões de posts curtos e criativos para Instagram ou Facebook. Inclua emojis relevantes em cada sugestão para aumentar o engajamento. Apresente as 3 opções de forma clara, separando-as com "---". Não use títulos como "Opção 1", nem use asteriscos ou hashtags no texto. No final, adicione uma frase convidando o cliente a contratar os serviços de social media da FELLPS DESIGN para um plano de conteúdo completo.`));
+        allButtons[2].addEventListener('click', () => handleApiCall(2, (promptText) => `Aja como um designer especialista em psicologia das cores. Um cliente quer transmitir a seguinte emoção/conceito com sua marca: "${promptText}". Sua tarefa é criar uma paleta de 3 cores harmoniosas. Para cada cor, forneça: o nome da cor, o código hexadecimal, e uma breve explicação (1-2 frases) do porquê essa cor ajuda a transmitir o conceito. Formate a resposta usando a seguinte estrutura para cada cor: "[NOME DA COR] - [HEX CODE] - [EXPLICAÇÃO]". Use "::" como um separador entre cada cor. Exemplo: Azul Sereno - #A2B9D1 - Explicação...::Verde Natural - #D1E2C4 - Explicação...::Branco Puro - #FFFFFF - Explicação...`));
         
-        // Função GENÉRICA para chamar a API Gemini com retentativa exponencial
-        async function callGemini(prompt, retries = 3, delay = 1000) {
-            const apiKey = ""; // A chave será fornecida pelo ambiente
+        async function callGemini(prompt, apiKey, retries = 3, delay = 1000) {
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-            
-            let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
-            const payload = { contents: chatHistory };
+            const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
 
             for (let i = 0; i < retries; i++) {
                 try {
@@ -435,9 +418,7 @@
 
                     const result = await response.json();
 
-                    if (result.candidates && result.candidates.length > 0 &&
-                        result.candidates[0].content && result.candidates[0].content.parts &&
-                        result.candidates[0].content.parts.length > 0) {
+                    if (result.candidates && result.candidates[0].content && result.candidates[0].content.parts && result.candidates[0].content.parts.length > 0) {
                         return result.candidates[0].content.parts[0].text;
                     } else {
                         if (result.promptFeedback && result.promptFeedback.blockReason) {
@@ -447,9 +428,7 @@
                     }
                 } catch (error) {
                     console.error(`Attempt ${i + 1} failed:`, error.message);
-                    if (i === retries - 1) {
-                        throw error;
-                    }
+                    if (i === retries - 1) throw error;
                     await new Promise(res => setTimeout(res, delay * Math.pow(2, i)));
                 }
             }
@@ -458,3 +437,4 @@
 
 </body>
 </html>
+
